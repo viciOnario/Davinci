@@ -2,6 +2,10 @@ import Review from "../models/ReviewModel.js";
 
 const crearReview = async ( request, response ) => {
     const body = request.body;
+    if( !body.autor || !body.propietario){
+        response.status(401).json({'Msg': 'Falta campos obligatorios'});
+        return
+    }
     const nuevo = new Review( body );
     const data = await nuevo.save();
 
