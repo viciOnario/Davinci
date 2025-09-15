@@ -2,6 +2,10 @@ import Propiedad from "../models/PropiedadModel.js";
 
 const crearPropiedad = async ( request, response) => {
     const body = request.body;
+    if( !body.titulo  || !body.dueño){
+        response.status(401).json({'Msg': 'Falta campos obligatorios'});
+        return
+    }
     const nuevo = new Propiedad( body );
     const data = await nuevo.save();
 
