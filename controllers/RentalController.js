@@ -2,6 +2,10 @@ import Rental from "../models/RentalModel.js";
 
 const crearRental = async ( request, response) => {
     const body = request.body;
+    if( !body.propiedad  || !body.inquilino){
+        response.status(401).json({'Msg': 'Falta campos obligatorios'});
+        return
+    }
     const nuevo = new Rental( body );
     const data = await nuevo.save();
 
