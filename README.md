@@ -140,6 +140,9 @@ module.exports = mongoose.model("Usuario", UsuarioSchema);
 Este proyecto es de uso libre para fines educativos y de práctica.  
 
 
+npm install jsonwebtoken
+npm install bcrypt
+
 Nombre: Juan Pedro
 Apellido: Jane Linares
 Docente: Jonathan Cruz
